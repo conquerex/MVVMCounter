@@ -15,8 +15,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.lifecycleOwner = this
 
         var vm = ViewModelProviders.of(this)[CounterViewModel::class.java]
+        binding.setVariable(BR.vm, vm)
 
         binding.buttonPlus.setOnClickListener {
 //            vm.counter += 1
@@ -32,10 +34,13 @@ class MainActivity : AppCompatActivity() {
 //            binding.textResult.text = "Down : $counter"
         }
 
+        /**
+         * Data binding으로 생략됨
+         *
         vm.cnt.observe(this, Observer {
             // UI 업데이트
 //            val counter = vm.cnt.value
             binding.textResult.text = "count : $it"
-        })
+        })*/
     }
 }
