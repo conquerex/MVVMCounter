@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="what.the.mvvmcounter.SeekbarViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context=".ShareSeekbarFragment">
-
 
         <SeekBar
             android:id="@+id/seekbar"
@@ -17,6 +21,7 @@
             android:layout_margin="30dp"
             android:background="#FFEB3B"
             android:max="100"
+            android:progress="@{viewmodel.progress}"
             app:layout_constraintBottom_toTopOf="@id/text_seekbar" />
 
         <TextView

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import what.the.mvvmcounter.databinding.FragmentShareSeekbarBinding
 
@@ -31,6 +30,10 @@ class ShareSeekbarFragment : Fragment() {
         val viewModel = ViewModelProviders.of(requireActivity())[SeekbarViewModel::class.java]
 
         val binding = DataBindingUtil.bind<FragmentShareSeekbarBinding>(view)
+        binding?.lifecycleOwner = requireActivity()
+        binding?.setVariable(BR.viewmodel, viewModel)
+
+
         binding?.seekbar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 binding.textSeekbar.text = progress.toString()
@@ -47,9 +50,10 @@ class ShareSeekbarFragment : Fragment() {
 
         })
 
-        viewModel.progress.observe(requireActivity(), Observer {
-            binding?.seekbar?.progress = it
-        })
+        // databinding으로 교
+//        viewModel.progress.observe(requireActivity(), Observer {
+//            binding?.seekbar?.progress = it
+//        })
     }
 
 }
