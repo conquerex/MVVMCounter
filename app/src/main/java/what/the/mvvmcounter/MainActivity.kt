@@ -1,5 +1,6 @@
 package what.the.mvvmcounter
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -28,10 +29,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonMinus.setOnClickListener {
-//            vm.counter -= 1
+            //            vm.counter -= 1
             vm.decrease()
 //            val counter = vm.cnt.value
 //            binding.textResult.text = "Down : $counter"
+        }
+
+        binding.buttonShowSeekbar.setOnClickListener {
+            var intent = Intent(this, ShareActivity::class.java)
+            startActivity(intent)
         }
 
         /**

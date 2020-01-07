@@ -27,7 +27,7 @@
 
         <Button
             android:id="@+id/button_plus"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="70dp"
             android:text="Plus"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,11 +35,21 @@
 
         <Button
             android:id="@+id/button_minus"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="70dp"
             android:text="Minus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/button_show_seekbar"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:text="Show seekbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
